@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="app.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <title>Git Training</title>
   </head>
@@ -12,7 +11,7 @@
     <div id="main-container">
       <div id="boxes">
         <div id="top-box">
-          <div id="box1"></div>
+          <div id="box1">1</div>
           <div id="box2"></div>
         </div>
         <div id="mid-box">
@@ -49,7 +48,10 @@
       const click8 = box8.addEventListener("click", editBox);
 
       function editBox(e) {
-        console.log(`Box ${e.target} has been clicked`);
+        const el = document.getElementById(e.target.id);
+
+        el.innerHTML = `<input id="num-input"></input>`;
+        console.log(`Box ${e.target.textContent} has been clicked`);
       }
     </script>
   </body>
