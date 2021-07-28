@@ -27,6 +27,7 @@
       </div>
     </div>
     <script>
+      let arr = [];
       //document.getElementbyId
       const box1 = document.getElementById("box1");
       const box2 = document.getElementById("box2");
@@ -38,32 +39,50 @@
       const box8 = document.getElementById("box8");
 
       //addEventListener
-      const click1 = box1.addEventListener("click", editBox);
-      const click2 = box2.addEventListener("click", editBox);
-      const click3 = box3.addEventListener("click", editBox);
-      const click4 = box4.addEventListener("click", editBox);
-      const click5 = box5.addEventListener("click", editBox);
-      const click6 = box6.addEventListener("click", editBox);
-      const click7 = box7.addEventListener("click", editBox);
-      const click8 = box8.addEventListener("click", editBox);
+      box1.addEventListener("click", editBox, { once: true });
+      box2.addEventListener("click", editBox, { once: true });
+      box3.addEventListener("click", editBox, { once: true });
+      box4.addEventListener("click", editBox, { once: true });
+      box5.addEventListener("click", editBox, { once: true });
+      box6.addEventListener("click", editBox, { once: true });
+      box7.addEventListener("click", editBox, { once: true });
+      box8.addEventListener("click", editBox, { once: true });
 
-      function editBox(e) {
+      function editBox(event) {
         //getting box id
-        e.preventDefault();
-        const el = document.getElementById(e.target.id);
+        event.preventDefault();
+        console.log("clicked");
         //creating text box
-        el.innerHTML = `<form>
-          <input id="num-input" maxlength="1" value="${el.textContent}"></input>
-          <button id="ok-button" type="submit">OK</button></form>`;
-        const num = document.getElementById("num-input");
-        const btn = document.getElementById("ok-button");
-        btn.addEventListener("click", () => {
-          if (num.value <= 8 && num.value >= 1) {
-            el.innerHTML = `${num.value}`;
-          } else {
-            alert("Please enter 1-8 only");
-          }
-        });
+        try {
+          event.target.innerHTML = `
+          <input id="num-input" maxlength="1"></input>
+          <button id="ok-button" type="submit">OK</button>`;
+          let num = document.getElementById("num-input");
+          let btn = document.getElementById("ok-button");
+          btn.addEventListener("click", () => {
+            if (num.value <= 8 && num.value >= 1) {
+              addToArr(event.target.id, num.value);
+              event.target.innerHTML = num.value;
+              btn.removeEventListener("click", () => {
+                console.log("removed");
+              });
+            } else {
+              alert("Please enter 1-8 only");
+            }
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      function addToArr(boxNum, boxVal) {
+        const found = arr.some((el) => el.id === boxNum);
+        if (!found) {
+          arr = [...arr, { id: boxNum, value: boxVal }];
+        } else {
+          console.log("box already exist");
+        }
+        console.log(arr[0]);
       }
     </script>
   </body>
