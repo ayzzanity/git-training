@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main-container {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#boxes {
+  margin: 2rem;
+}
+
+#box1,
+#box2,
+#box3,
+#box4,
+#box5,
+#box6,
+#box7,
+#box8 {
+  border-style: solid;
+  padding: 1rem;
+}
+
+#top-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mid-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bottom-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
