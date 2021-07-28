@@ -11,7 +11,7 @@
     <div id="main-container">
       <div id="boxes">
         <div id="top-box">
-          <div id="box1">1</div>
+          <div id="box1"></div>
           <div id="box2"></div>
         </div>
         <div id="mid-box">
@@ -48,10 +48,22 @@
       const click8 = box8.addEventListener("click", editBox);
 
       function editBox(e) {
+        //getting box id
+        e.preventDefault();
         const el = document.getElementById(e.target.id);
-
-        el.innerHTML = `<input id="num-input"></input>`;
-        console.log(`Box ${e.target.textContent} has been clicked`);
+        //creating text box
+        el.innerHTML = `<form>
+          <input id="num-input" maxlength="1" value="${el.textContent}"></input>
+          <button id="ok-button" type="submit">OK</button></form>`;
+        const num = document.getElementById("num-input");
+        const btn = document.getElementById("ok-button");
+        btn.addEventListener("click", () => {
+          if (num.value <= 8 && num.value >= 1) {
+            el.innerHTML = `${num.value}`;
+          } else {
+            alert("Please enter 1-8 only");
+          }
+        });
       }
     </script>
   </body>
