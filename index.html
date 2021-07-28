@@ -11,21 +11,45 @@
     <div id="main-container">
       <div id="boxes">
         <div id="top-box">
-          <div id="box1">1</div>
-          <div id="box2">2</div>
+          <div id="box1"></div>
+          <div id="box2"></div>
         </div>
         <div id="mid-box">
-          <div id="box3">3</div>
-          <div id="box4">4</div>
-          <div id="box5">5</div>
-          <div id="box6">6</div>
+          <div id="box3"></div>
+          <div id="box4"></div>
+          <div id="box5"></div>
+          <div id="box6"></div>
         </div>
         <div id="bottom-box">
-          <div id="box7">7</div>
-          <div id="box8">8</div>
+          <div id="box7"></div>
+          <div id="box8"></div>
         </div>
       </div>
     </div>
-    <script></script>
+    <script>
+      //document.getElementbyId
+      const box1 = document.getElementById("box1");
+      const box2 = document.getElementById("box2");
+      const box3 = document.getElementById("box3");
+      const box4 = document.getElementById("box4");
+      const box5 = document.getElementById("box5");
+      const box6 = document.getElementById("box6");
+      const box7 = document.getElementById("box7");
+      const box8 = document.getElementById("box8");
+
+      //addEventListener
+      const click1 = box1.addEventListener("click", editBox);
+      const click2 = box2.addEventListener("click", editBox);
+      const click3 = box3.addEventListener("click", editBox);
+      const click4 = box4.addEventListener("click", editBox);
+      const click5 = box5.addEventListener("click", editBox);
+      const click6 = box6.addEventListener("click", editBox);
+      const click7 = box7.addEventListener("click", editBox);
+      const click8 = box8.addEventListener("click", editBox);
+
+      function editBox(e) {
+        console.log(`Box ${e.target} has been clicked`);
+      }
+    </script>
   </body>
 </html>
