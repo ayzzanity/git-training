@@ -82,7 +82,8 @@
         } else {
           console.log("box already exist");
         }
-        console.log(arr[0]);
+        arr.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
+        console.log(arr);
       }
     </script>
   </body>
