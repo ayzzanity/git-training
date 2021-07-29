@@ -92,12 +92,14 @@ const checkingAnswer = (data) => {
           if (
             boxValue + 1 != data[1].value &&
             boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[2].value &&
+            boxValue + 1 != data[2].value &&
             boxValue + 1 != data[4].value
           ) {
             console.log("box 1 is correct");
+            box1.style.color = "white";
           } else {
             console.log("box 1 is wrong");
+            box1.style.color = "red";
           }
         } else {
           if (
@@ -112,8 +114,10 @@ const checkingAnswer = (data) => {
           ) {
             points = points++;
             console.log("box 1 is correct");
+            box1.style.color = "white";
           } else {
             console.log("box 1 is wrong");
+            box1.style.color = "red";
           }
         }
       } catch (error) {
@@ -134,8 +138,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[5].value
         ) {
           console.log("box 2 is correct");
+          box2.style.color = "white";
         } else {
           console.log("box 2 is wrong");
+          box2.style.color = "red";
         }
       } catch (error) {}
     }
@@ -150,8 +156,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[6].value
         ) {
           console.log("box 3 is correct");
+          box3.style.color = "white";
         } else {
           console.log("box 3 is wrong");
+          box3.style.color = "red";
         }
       } catch (error) {}
     }
@@ -172,8 +180,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[7].value
         ) {
           console.log("box 4 is correct");
+          box4.style.color = "white";
         } else {
           console.log("box 4 is wrong");
+          box4.style.color = "red";
         }
       } catch (error) {}
     }
@@ -194,8 +204,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[6].value
         ) {
           console.log("box 5 is correct");
+          box5.style.color = "white";
         } else {
           console.log("box 5 is wrong");
+          box5.style.color = "red";
         }
       } catch (error) {}
     }
@@ -210,8 +222,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[7].value
         ) {
           console.log("box 6 is correct");
+          box6.style.color = "white";
         } else {
           console.log("box 6 is wrong");
+          box6.style.color = "red";
         }
       } catch (error) {}
     }
@@ -226,8 +240,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[4].value
         ) {
           console.log("box 7 is correct");
+          box7.style.color = "white";
         } else {
           console.log("box 7 is wrong");
+          box7.style.color = "red";
         }
       } catch (error) {}
     }
@@ -242,8 +258,10 @@ const checkingAnswer = (data) => {
           boxValue + 1 != data[3].value
         ) {
           console.log("box 8 is correct");
+          box8.style.color = "white";
         } else {
           console.log("box 8 is wrong");
+          box8.style.color = "red";
         }
       } catch (error) {}
     }
