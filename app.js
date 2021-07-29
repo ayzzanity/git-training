@@ -43,6 +43,7 @@ function editBox(event) {
     let btn = document.getElementById("ok-button");
     //btn listener
     btn.addEventListener("click", () => {
+      console.clear();
       //checking if num is 1-8
       if (num.value <= 8 && num.value >= 1) {
         //checking if num already in the box / array
@@ -82,20 +83,12 @@ function addToArr(boxNum, boxVal) {
 
 const checkingAnswer = (data) => {
   let points;
-  console.log(data);
   data.map((value) => {
     let boxValue = parseInt(value.value);
     console.log(`checking ${value.id}`);
     if (value.id == "box1" && value.value != "") {
       try {
-        console.log(boxValue - 1, data[1].value, boxValue - 1 != data[1].value);
-        console.log(boxValue + 1, data[1].value, boxValue + 1 != data[1].value);
-        console.log(boxValue - 1, data[3].value, boxValue - 1 != data[3].value);
-        console.log(boxValue + 1, data[3].value, boxValue + 1 != data[3].value);
-
         if (value.value == "1") {
-          console.log("box1=1");
-
           if (boxValue + 1 != data[1].value && boxValue + 1 != data[3].value) {
             console.log("box 1 is correct");
           } else {
