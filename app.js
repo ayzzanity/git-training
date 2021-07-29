@@ -288,14 +288,12 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[0].value &&
             boxValue + 1 != data[1].value &&
             boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[4].value &&
             boxValue + 1 != data[5].value &&
             boxValue + 1 != data[6].value &&
             boxValue + 1 != data[7].value &&
             boxValue != data[0].value &&
             boxValue != data[1].value &&
             boxValue != data[3].value &&
-            boxValue != data[4].value &&
             boxValue != data[5].value &&
             boxValue != data[6].value &&
             boxValue != data[7].value
@@ -322,7 +320,6 @@ const checkingAnswer = (data) => {
             boxValue != data[0].value &&
             boxValue != data[1].value &&
             boxValue != data[3].value &&
-            boxValue != data[4].value &&
             boxValue != data[5].value &&
             boxValue != data[6].value &&
             boxValue != data[7].value
