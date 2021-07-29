@@ -74,6 +74,7 @@ function HtmlFn() {
       });
     } catch (e) {}
   }
+  //Getting Value of the Box
   function getBoxValue(boxNum) {
     let val;
     arr.forEach((obj) => {
