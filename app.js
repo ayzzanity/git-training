@@ -17,8 +17,6 @@ const box5 = document.getElementById("box5");
 const box6 = document.getElementById("box6");
 const box7 = document.getElementById("box7");
 const box8 = document.getElementById("box8");
-<<<<<<< HEAD
-=======
 
 //addEventListener
 box1.addEventListener("click", editBox);
@@ -83,7 +81,6 @@ function addToArr(boxNum, boxVal) {
   arr.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
   console.log(arr);
 }
->>>>>>> 3dcb307493566fc656d34b929c16c68bd956f471
 
 //addEventListener
 box1.addEventListener("click", editBox);
@@ -152,16 +149,6 @@ function addToArr(boxNum, boxVal) {
 const checkingAnswer = (data) => {
   let points;
   //box1 value is not equals to +- the value of box2 and box4
-<<<<<<< HEAD
-  console.log("check data", data[0].value);
-  data.map((value) => {
-    if (value.id == "box1") {
-      //check
-      //if(correct){}else{displayborder red}
-    }
-  });
-=======
->>>>>>> 3dcb307493566fc656d34b929c16c68bd956f471
   if (
     box1 - 1 != box2 &&
     box1 + 1 != box2 &&
@@ -232,8 +219,3 @@ const checkingAnswer = (data) => {
     //console.log("box 8 is correct");
   }
 };
-<<<<<<< HEAD
-
-//checkingAnswer(arr);
-=======
->>>>>>> 3dcb307493566fc656d34b929c16c68bd956f471
