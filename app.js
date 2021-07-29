@@ -101,7 +101,7 @@ function htmlFn() {
 
 function LogicFn() {
   const checkingAnswer = (data) => {
-    var score = 0;
+    let score = 0;
     data.map((value) => {
       let boxValue = parseInt(value.value);
       if (value.id == "box1" && value.value != "") {
