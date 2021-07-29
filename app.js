@@ -160,9 +160,9 @@ function LogicFn() {
           if (value.value == "1") {
             if (
               boxValue + 1 != data[0].value &&
-              boxValue + 1 != data[2].value &&
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[4].value &&
+              boxValue + 1 != data[5].value &&
               boxValue != data[0].value &&
               boxValue != data[2].value &&
               boxValue != data[3].value &&
