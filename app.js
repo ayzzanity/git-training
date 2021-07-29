@@ -88,11 +88,6 @@ const checkingAnswer = (data) => {
     console.log(`checking ${value.id}`);
     if (value.id == "box1" && value.value != "") {
       try {
-        console.log(boxValue - 1, data[1].value, boxValue - 1 != data[1].value);
-        console.log(boxValue + 1, data[1].value, boxValue + 1 != data[1].value);
-        console.log(boxValue - 1, data[3].value, boxValue - 1 != data[3].value);
-        console.log(boxValue + 1, data[3].value, boxValue + 1 != data[3].value);
-
         if (value.value == "1") {
           console.log("box1=1");
 
