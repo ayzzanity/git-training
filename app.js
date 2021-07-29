@@ -105,7 +105,7 @@ function addToArr(boxNum, boxVal) {
 }
 
 const checkingAnswer = (data) => {
-  let points;
+  var score = 0;
   data.map((value) => {
     let boxValue = parseInt(value.value);
     console.log(`checking ${value.id}`);
@@ -118,7 +118,9 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[2].value &&
             boxValue + 1 != data[4].value
           ) {
-            console.log("box 1 is correct");
+            score = score + 1;
+
+            console.log("box 1 is correct", score);
             box1.style.color = "white";
           } else {
             console.log("box 1 is wrong");
@@ -135,7 +137,7 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[4].value &&
             boxValue + 1 != data[4].value
           ) {
-            points = points++;
+            score = score + 1;
             console.log("box 1 is correct");
             box1.style.color = "white";
           } else {
@@ -150,145 +152,277 @@ const checkingAnswer = (data) => {
 
     if (value.id == "box2" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[0].value &&
-          boxValue + 1 != data[0].value &&
-          boxValue - 1 != data[4].value &&
-          boxValue + 1 != data[4].value &&
-          boxValue - 1 != data[3].value &&
-          boxValue + 1 != data[3].value &&
-          boxValue - 1 != data[5].value &&
-          boxValue + 1 != data[5].value
-        ) {
-          console.log("box 2 is correct");
-          box2.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[0].value &&
+            boxValue + 1 != data[2].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue + 1 != data[4].value
+          ) {
+            score = score + 1;
+            console.log("box 2 is correct");
+            box1.style.color = "white";
+          } else {
+            console.log("box 2 is wrong");
+            box1.style.color = "red";
+          }
         } else {
-          console.log("box 2 is wrong");
-          box2.style.color = "red";
+          if (
+            boxValue - 1 != data[0].value &&
+            boxValue + 1 != data[0].value &&
+            boxValue - 1 != data[4].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue - 1 != data[3].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue - 1 != data[5].value &&
+            boxValue + 1 != data[5].value
+          ) {
+            score = score + 1;
+            console.log("box 2 is correct");
+            box2.style.color = "white";
+          } else {
+            console.log("box 2 is wrong");
+            box2.style.color = "red";
+          }
         }
       } catch (error) {}
     }
     if (value.id == "box3" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[3].value &&
-          boxValue + 1 != data[3].value &&
-          boxValue - 1 != data[0].value &&
-          boxValue + 1 != data[0].value &&
-          boxValue - 1 != data[6].value &&
-          boxValue + 1 != data[6].value
-        ) {
-          console.log("box 3 is correct");
-          box3.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[0].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue + 1 != data[6].value
+          ) {
+            score = score + 1;
+            console.log("box 3 is correct");
+            box3.style.color = "white";
+          } else {
+            console.log("box 3 is wrong");
+            box3.style.color = "red";
+          }
         } else {
-          console.log("box 3 is wrong");
-          box3.style.color = "red";
+          if (
+            boxValue - 1 != data[3].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue - 1 != data[0].value &&
+            boxValue + 1 != data[0].value &&
+            boxValue - 1 != data[6].value &&
+            boxValue + 1 != data[6].value
+          ) {
+            score = score + 1;
+            console.log("box 3 is correct");
+            box3.style.color = "white";
+          } else {
+            console.log("box 3 is wrong");
+            box3.style.color = "red";
+          }
         }
       } catch (error) {}
     }
     if (value.id == "box4" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[0].value &&
-          boxValue + 1 != data[0].value &&
-          boxValue - 1 != data[2].value &&
-          boxValue + 1 != data[2].value &&
-          boxValue - 1 != data[4].value &&
-          boxValue + 1 != data[4].value &&
-          boxValue - 1 != data[6].value &&
-          boxValue + 1 != data[6].value &&
-          boxValue - 1 != data[1].value &&
-          boxValue + 1 != data[1].value &&
-          boxValue - 1 != data[7].value &&
-          boxValue + 1 != data[7].value
-        ) {
-          console.log("box 4 is correct");
-          box4.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[0].value &&
+            boxValue + 1 != data[1].value &&
+            boxValue + 1 != data[2].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue + 1 != data[6].value &&
+            boxValue + 1 != data[7].value
+          ) {
+            score = score + 1;
+            console.log("box 4 is correct");
+            box4.style.color = "white";
+          } else {
+            console.log("box 4 is wrong");
+            box4.style.color = "red";
+          }
         } else {
-          console.log("box 4 is wrong");
-          box4.style.color = "red";
+          if (
+            boxValue - 1 != data[0].value &&
+            boxValue + 1 != data[0].value &&
+            boxValue - 1 != data[2].value &&
+            boxValue + 1 != data[2].value &&
+            boxValue - 1 != data[4].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue - 1 != data[6].value &&
+            boxValue + 1 != data[6].value &&
+            boxValue - 1 != data[1].value &&
+            boxValue + 1 != data[1].value &&
+            boxValue - 1 != data[7].value &&
+            boxValue + 1 != data[7].value
+          ) {
+            score = score + 1;
+            console.log("box 4 is correct");
+            box4.style.color = "white";
+          } else {
+            console.log("box 4 is wrong");
+            box4.style.color = "red";
+          }
         }
       } catch (error) {}
     }
     if (value.id == "box5" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[1].value &&
-          boxValue + 1 != data[1].value &&
-          boxValue - 1 != data[3].value &&
-          boxValue + 1 != data[3].value &&
-          boxValue - 1 != data[5].value &&
-          boxValue + 1 != data[5].value &&
-          boxValue - 1 != data[7].value &&
-          boxValue + 1 != data[7].value &&
-          boxValue - 1 != data[0].value &&
-          boxValue + 1 != data[0].value &&
-          boxValue - 1 != data[6].value &&
-          boxValue + 1 != data[6].value
-        ) {
-          console.log("box 5 is correct");
-          box5.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[0].value &&
+            boxValue + 1 != data[1].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue + 1 != data[5].value &&
+            boxValue + 1 != data[6].value &&
+            boxValue + 1 != data[7].value
+          ) {
+            score = score + 1;
+            console.log("box 5 is correct");
+            box5.style.color = "white";
+          } else {
+            console.log("box 5 is wrong");
+            box5.style.color = "red";
+          }
         } else {
-          console.log("box 5 is wrong");
-          box5.style.color = "red";
+          if (
+            boxValue - 1 != data[1].value &&
+            boxValue + 1 != data[1].value &&
+            boxValue - 1 != data[3].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue - 1 != data[5].value &&
+            boxValue + 1 != data[5].value &&
+            boxValue - 1 != data[7].value &&
+            boxValue + 1 != data[7].value &&
+            boxValue - 1 != data[0].value &&
+            boxValue + 1 != data[0].value &&
+            boxValue - 1 != data[6].value &&
+            boxValue + 1 != data[6].value
+          ) {
+            score = score + 1;
+            console.log("box 5 is correct");
+            box5.style.color = "white";
+          } else {
+            console.log("box 5 is wrong");
+            box5.style.color = "red";
+          }
         }
       } catch (error) {}
     }
     if (value.id == "box6" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[4].value &&
-          boxValue + 1 != data[4].value &&
-          boxValue - 1 != data[1].value &&
-          boxValue + 1 != data[1].value &&
-          boxValue - 1 != data[7].value &&
-          boxValue + 1 != data[7].value
-        ) {
-          console.log("box 6 is correct");
-          box6.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[1].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue + 1 != data[7].value
+          ) {
+            score = score + 1;
+            console.log("box 6 is correct");
+            box6.style.color = "white";
+          } else {
+            console.log("box 6 is wrong");
+            box6.style.color = "red";
+          }
         } else {
-          console.log("box 6 is wrong");
-          box6.style.color = "red";
+          if (
+            boxValue - 1 != data[4].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue - 1 != data[1].value &&
+            boxValue + 1 != data[1].value &&
+            boxValue - 1 != data[7].value &&
+            boxValue + 1 != data[7].value
+          ) {
+            score = score + 1;
+            console.log("box 6 is correct");
+            box6.style.color = "white";
+          } else {
+            console.log("box 6 is wrong");
+            box6.style.color = "red";
+          }
         }
       } catch (error) {}
     }
     if (value.id == "box7" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[3].value &&
-          boxValue + 1 != data[3].value &&
-          boxValue - 1 != data[7].value &&
-          boxValue + 1 != data[7].value &&
-          boxValue - 1 != data[4].value &&
-          boxValue + 1 != data[4].value
-        ) {
-          console.log("box 7 is correct");
-          box7.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[2].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue + 1 != data[7].value
+          ) {
+            score = score + 1;
+            console.log("box 7 is correct");
+            box7.style.color = "white";
+          } else {
+            console.log("box 7 is wrong");
+            box7.style.color = "red";
+          }
         } else {
-          console.log("box 7 is wrong");
-          box7.style.color = "red";
+          if (
+            boxValue - 1 != data[3].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue - 1 != data[7].value &&
+            boxValue + 1 != data[7].value &&
+            boxValue - 1 != data[4].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue - 1 != data[2].value &&
+            boxValue + 1 != data[2].value
+          ) {
+            score = score + 1;
+            console.log("box 7 is correct");
+            box7.style.color = "white";
+          } else {
+            console.log("box 7 is wrong");
+            box7.style.color = "red";
+          }
         }
       } catch (error) {}
     }
     if (value.id == "box8" && value.value != "") {
       try {
-        if (
-          boxValue - 1 != data[4].value &&
-          boxValue + 1 != data[4].value &&
-          boxValue - 1 != data[6].value &&
-          boxValue + 1 != data[6].value &&
-          boxValue - 1 != data[3].value &&
-          boxValue + 1 != data[3].value
-        ) {
-          console.log("box 8 is correct");
-          box8.style.color = "white";
+        if (value.value == "1") {
+          if (
+            boxValue + 1 != data[3].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue + 1 != data[5].value &&
+            boxValue + 1 != data[6].value
+          ) {
+            score = score + 1;
+            console.log("box 7 is correct");
+            box8.style.color = "white";
+          } else {
+            console.log("box 7 is wrong");
+            box8.style.color = "red";
+          }
         } else {
-          console.log("box 8 is wrong");
-          box8.style.color = "red";
+          if (
+            boxValue - 1 != data[4].value &&
+            boxValue + 1 != data[4].value &&
+            boxValue - 1 != data[6].value &&
+            boxValue + 1 != data[6].value &&
+            boxValue - 1 != data[3].value &&
+            boxValue + 1 != data[3].value &&
+            boxValue - 1 != data[5].value &&
+            boxValue + 1 != data[5].value
+          ) {
+            score = score + 1;
+            console.log("box 8 is correct");
+            box8.style.color = "white";
+          } else {
+            console.log("box 8 is wrong");
+            box8.style.color = "red";
+          }
         }
       } catch (error) {}
     }
   });
+  console.log(score);
+  if (score == 8) {
+    console.log("You are a winner");
+  } else {
+    console.log("You are a loser");
+  }
 };
 
 //checkingAnswer(arr);
