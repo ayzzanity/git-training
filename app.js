@@ -115,7 +115,11 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[1].value &&
             boxValue + 1 != data[3].value &&
             boxValue + 1 != data[2].value &&
-            boxValue + 1 != data[4].value
+            boxValue + 1 != data[4].value &&
+            boxValue != data[1].value &&
+            boxValue != data[3].value &&
+            boxValue != data[2].value &&
+            boxValue != data[4].value
           ) {
             score = score + 1;
 
@@ -132,7 +136,11 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[2].value &&
             boxValue + 1 != data[2].value &&
             boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value
+            boxValue + 1 != data[4].value &&
+            boxValue != data[1].value &&
+            boxValue != data[2].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value
           ) {
             score = score + 1;
             box1.style.color = "white";
@@ -152,12 +160,16 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[0].value &&
             boxValue + 1 != data[2].value &&
             boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[4].value
+            boxValue + 1 != data[4].value &&
+            boxValue != data[0].value &&
+            boxValue != data[2].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value
           ) {
             score = score + 1;
-            box1.style.color = "white";
+            box2.style.color = "white";
           } else {
-            box1.style.color = "red";
+            box2.style.color = "red";
           }
         } else {
           if (
@@ -168,7 +180,11 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[3].value &&
             boxValue + 1 != data[3].value &&
             boxValue - 1 != data[5].value &&
-            boxValue + 1 != data[5].value
+            boxValue + 1 != data[5].value &&
+            boxValue != data[0].value &&
+            boxValue != data[2].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value
           ) {
             score = score + 1;
             box2.style.color = "white";
@@ -184,7 +200,10 @@ const checkingAnswer = (data) => {
           if (
             boxValue + 1 != data[0].value &&
             boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[6].value
+            boxValue + 1 != data[6].value &&
+            boxValue != data[0].value &&
+            boxValue != data[3].value &&
+            boxValue != data[6].value
           ) {
             score = score + 1;
             box3.style.color = "white";
@@ -198,7 +217,10 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[0].value &&
             boxValue + 1 != data[0].value &&
             boxValue - 1 != data[6].value &&
-            boxValue + 1 != data[6].value
+            boxValue + 1 != data[6].value &&
+            boxValue != data[0].value &&
+            boxValue != data[3].value &&
+            boxValue != data[6].value
           ) {
             score = score + 1;
             box3.style.color = "white";
@@ -217,7 +239,13 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[2].value &&
             boxValue + 1 != data[4].value &&
             boxValue + 1 != data[6].value &&
-            boxValue + 1 != data[7].value
+            boxValue + 1 != data[7].value &&
+            boxValue != data[0].value &&
+            boxValue != data[1].value &&
+            boxValue != data[2].value &&
+            boxValue != data[4].value &&
+            boxValue != data[6].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box4.style.color = "white";
@@ -237,7 +265,13 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[1].value &&
             boxValue + 1 != data[1].value &&
             boxValue - 1 != data[7].value &&
-            boxValue + 1 != data[7].value
+            boxValue + 1 != data[7].value &&
+            boxValue != data[0].value &&
+            boxValue != data[1].value &&
+            boxValue != data[2].value &&
+            boxValue != data[4].value &&
+            boxValue != data[6].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box4.style.color = "white";
@@ -257,7 +291,14 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[4].value &&
             boxValue + 1 != data[5].value &&
             boxValue + 1 != data[6].value &&
-            boxValue + 1 != data[7].value
+            boxValue + 1 != data[7].value &&
+            boxValue != data[0].value &&
+            boxValue != data[1].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value &&
+            boxValue != data[5].value &&
+            boxValue != data[6].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box5.style.color = "white";
@@ -277,7 +318,14 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[0].value &&
             boxValue + 1 != data[0].value &&
             boxValue - 1 != data[6].value &&
-            boxValue + 1 != data[6].value
+            boxValue + 1 != data[6].value &&
+            boxValue != data[0].value &&
+            boxValue != data[1].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value &&
+            boxValue != data[5].value &&
+            boxValue != data[6].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box5.style.color = "white";
@@ -293,7 +341,10 @@ const checkingAnswer = (data) => {
           if (
             boxValue + 1 != data[1].value &&
             boxValue + 1 != data[4].value &&
-            boxValue + 1 != data[7].value
+            boxValue + 1 != data[7].value &&
+            boxValue != data[1].value &&
+            boxValue != data[4].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box6.style.color = "white";
@@ -307,7 +358,10 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[1].value &&
             boxValue + 1 != data[1].value &&
             boxValue - 1 != data[7].value &&
-            boxValue + 1 != data[7].value
+            boxValue + 1 != data[7].value &&
+            boxValue != data[1].value &&
+            boxValue != data[4].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box6.style.color = "white";
@@ -324,7 +378,11 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[2].value &&
             boxValue + 1 != data[3].value &&
             boxValue + 1 != data[4].value &&
-            boxValue + 1 != data[7].value
+            boxValue + 1 != data[7].value &&
+            boxValue != data[2].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box7.style.color = "white";
@@ -340,7 +398,11 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[4].value &&
             boxValue + 1 != data[4].value &&
             boxValue - 1 != data[2].value &&
-            boxValue + 1 != data[2].value
+            boxValue + 1 != data[2].value &&
+            boxValue != data[2].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value &&
+            boxValue != data[7].value
           ) {
             score = score + 1;
             box7.style.color = "white";
@@ -357,7 +419,11 @@ const checkingAnswer = (data) => {
             boxValue + 1 != data[3].value &&
             boxValue + 1 != data[4].value &&
             boxValue + 1 != data[5].value &&
-            boxValue + 1 != data[6].value
+            boxValue + 1 != data[6].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value &&
+            boxValue != data[5].value &&
+            boxValue != data[6].value
           ) {
             score = score + 1;
             box8.style.color = "white";
@@ -373,7 +439,11 @@ const checkingAnswer = (data) => {
             boxValue - 1 != data[3].value &&
             boxValue + 1 != data[3].value &&
             boxValue - 1 != data[5].value &&
-            boxValue + 1 != data[5].value
+            boxValue + 1 != data[5].value &&
+            boxValue != data[3].value &&
+            boxValue != data[4].value &&
+            boxValue != data[5].value &&
+            boxValue != data[6].value
           ) {
             score = score + 1;
             box8.style.color = "white";
@@ -384,7 +454,7 @@ const checkingAnswer = (data) => {
       } catch (error) {}
     }
   });
-  console.log(`Score: ${score}`);
+  console.log(`Score is ${score}`);
   if (score == 8) {
     console.log("You are a winner");
     setTimeout(() => {
