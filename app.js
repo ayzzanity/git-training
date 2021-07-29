@@ -102,6 +102,8 @@ function HtmlFn() {
 function LogicFn() {
   const checkingAnswer = (data) => {
     let score = 0;
+    const audio = new Audio("error.mp3");
+    const audio2 = new Audio("winner.mp3");
     data.map((value) => {
       let boxValue = parseInt(value.value);
       if (value.id == "box1" && value.value != "") {
@@ -125,6 +127,8 @@ function LogicFn() {
               box1.style.color = "white";
             } else {
               box1.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -148,6 +152,8 @@ function LogicFn() {
               box1.style.color = "white";
             } else {
               box1.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {
@@ -175,6 +181,8 @@ function LogicFn() {
               box2.style.color = "white";
             } else {
               box2.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -198,6 +206,8 @@ function LogicFn() {
               box2.style.color = "white";
             } else {
               box2.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -221,6 +231,8 @@ function LogicFn() {
               box3.style.color = "white";
             } else {
               box3.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -242,6 +254,8 @@ function LogicFn() {
               box3.style.color = "white";
             } else {
               box3.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -268,6 +282,8 @@ function LogicFn() {
               box4.style.color = "white";
             } else {
               box4.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -295,6 +311,8 @@ function LogicFn() {
               box4.style.color = "white";
             } else {
               box4.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -321,6 +339,8 @@ function LogicFn() {
               box5.style.color = "white";
             } else {
               box5.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -348,6 +368,8 @@ function LogicFn() {
               box5.style.color = "white";
             } else {
               box5.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -371,6 +393,8 @@ function LogicFn() {
               box6.style.color = "white";
             } else {
               box6.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -392,6 +416,8 @@ function LogicFn() {
               box6.style.color = "white";
             } else {
               box6.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -416,6 +442,8 @@ function LogicFn() {
               box7.style.color = "white";
             } else {
               box7.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -439,6 +467,8 @@ function LogicFn() {
               box7.style.color = "white";
             } else {
               box7.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -463,6 +493,8 @@ function LogicFn() {
               box8.style.color = "white";
             } else {
               box8.style.color = "red";
+
+              audio.play();
             }
           } else {
             if (
@@ -486,6 +518,8 @@ function LogicFn() {
               box8.style.color = "white";
             } else {
               box8.style.color = "red";
+
+              audio.play();
             }
           }
         } catch (error) {}
@@ -495,6 +529,7 @@ function LogicFn() {
     if (score == 8) {
       console.log("You are a winner");
       setTimeout(() => {
+        audio2.play();
         alert("Congratulations! You got all the correct answers! :D");
       }, 500);
     } else {
