@@ -1,4 +1,13 @@
-let arr = [];
+let arr = [
+  { id: "box1", value: "" },
+  { id: "box2", value: "" },
+  { id: "box3", value: "" },
+  { id: "box4", value: "" },
+  { id: "box5", value: "" },
+  { id: "box6", value: "" },
+  { id: "box7", value: "" },
+  { id: "box8", value: "" },
+];
 //document.getElementbyId
 const box1 = document.getElementById("box1");
 const box2 = document.getElementById("box2");
@@ -56,18 +65,18 @@ function editBox(event) {
 //ADDING BOX NUM AND VALUE TO ARRAY
 function addToArr(boxNum, boxVal) {
   //checking if box already exists in array
-  const boxFound = arr.some((el) => el.id === boxNum);
-  //add to array if box not found
-  if (!boxFound) {
-    arr = [...arr, { id: boxNum, value: boxVal }];
-  } else {
-    //update value for existing box
-    arr.forEach((obj) => {
-      if (obj.id === boxNum) {
-        obj.value = boxVal;
-      }
-    });
-  }
+  // const boxFound = arr.some((el) => el.id === boxNum);
+  // //add to array if box not found
+  // if (!boxFound) {
+  //   arr = [...arr, { id: boxNum, value: boxVal }];
+  // } else {
+  //update value for existing box
+  arr.forEach((obj) => {
+    if (obj.id === boxNum) {
+      obj.value = boxVal;
+    }
+  });
+  //}
   //sort box by number for easier checking
   arr.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
   console.log(arr);
