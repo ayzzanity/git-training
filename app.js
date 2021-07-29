@@ -8,6 +8,9 @@ let arr = [
   { id: "box7", value: "" },
   { id: "box8", value: "" },
 ];
+let input;
+let currentId;
+
 //document.getElementbyId
 const box1 = document.getElementById("box1");
 const box2 = document.getElementById("box2");
@@ -33,7 +36,18 @@ function editBox(event) {
   //temporarily removing event listener on box
   event.target.removeEventListener("click", editBox);
   event.preventDefault();
+  //check what box num
+  if (currentId != undefined && currentId != event.target.id) {
+    try {
+      let currentBox = document.getElementById(currentId);
+      currentBox.innerHTML = getBoxValue(currentId);
+      currentBox.addEventListener("click", editBox);
+      currentId = event.target.id;
+    } catch (e) {}
+  }
+
   //creating text box
+  currentId = event.target.id;
   try {
     event.target.innerHTML = `
           <input id="num-input" maxlength="1"></input>
@@ -47,11 +61,12 @@ function editBox(event) {
       //checking if num is 1-8
       if (num.value <= 8 && num.value >= 0) {
         //checking if num already in the box / array
+        input = num.value;
         let numFound = arr.some((el) => el.value === num.value);
-        if (!numFound) {
+        if (!numFound || input == num.value) {
           //adding to array and updating box, restoring event listener
           (async () => {
-            await addToArr(event.target.id, num.value);
+            await addToArr(currentId, num.value);
           })();
           event.target.innerHTML = num.value;
           event.target.addEventListener("click", editBox);
@@ -66,7 +81,15 @@ function editBox(event) {
     });
   } catch (e) {}
 }
-
+function getBoxValue(boxNum) {
+  let val;
+  arr.forEach((obj) => {
+    if (obj.id === boxNum) {
+      val = obj.value;
+    }
+  });
+  return val;
+}
 //ADDING BOX NUM AND VALUE TO ARRAY
 function addToArr(boxNum, boxVal) {
   //update value for existing box
