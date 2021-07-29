@@ -21,16 +21,16 @@ const box7 = document.getElementById("box7");
 const box8 = document.getElementById("box8");
 
 //addEventListener
-box1.addEventListener("click", htmlFn().editBox);
-box2.addEventListener("click", htmlFn().editBox);
-box3.addEventListener("click", htmlFn().editBox);
-box4.addEventListener("click", htmlFn().editBox);
-box5.addEventListener("click", htmlFn().editBox);
-box6.addEventListener("click", htmlFn().editBox);
-box7.addEventListener("click", htmlFn().editBox);
-box8.addEventListener("click", htmlFn().editBox);
+box1.addEventListener("click", HtmlFn().editBox);
+box2.addEventListener("click", HtmlFn().editBox);
+box3.addEventListener("click", HtmlFn().editBox);
+box4.addEventListener("click", HtmlFn().editBox);
+box5.addEventListener("click", HtmlFn().editBox);
+box6.addEventListener("click", HtmlFn().editBox);
+box7.addEventListener("click", HtmlFn().editBox);
+box8.addEventListener("click", HtmlFn().editBox);
 
-function htmlFn() {
+function HtmlFn() {
   //EDITABLE BOX
   function editBox(event) {
     //temporarily removing event listener on box
