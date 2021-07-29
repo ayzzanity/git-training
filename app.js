@@ -52,6 +52,7 @@ function editBox(event) {
           addToArr(event.target.id, num.value);
           event.target.innerHTML = num.value;
           event.target.addEventListener("click", editBox);
+          checkingAnswer(arr);
         } else {
           alert("Number already exists!");
         }
@@ -87,7 +88,7 @@ const checkingAnswer = (data) => {
   console.log(data);
   data.map((value) => {
     console.log(`checking ${value.id}`);
-    if (value.id == "box1") {
+    if (value.id == "box1" && value.value != "") {
       try {
         if (
           value.value - 1 != data[1].value &&
@@ -105,7 +106,7 @@ const checkingAnswer = (data) => {
       }
     }
 
-    if (value.id == "box2") {
+    if (value.id == "box2" && value.value != "") {
       //box2 value is not equals to +- the value of box1 and box5
       try {
         if (
@@ -120,7 +121,7 @@ const checkingAnswer = (data) => {
         }
       } catch (error) {}
     }
-    if (value.id == "box3") {
+    if (value.id == "box3" && value.value != "") {
       try {
         if (
           value.value - 1 != data[3].value &&
@@ -132,7 +133,7 @@ const checkingAnswer = (data) => {
         }
       } catch (error) {}
     }
-    if (value.id == "box4") {
+    if (value.id == "box4" && value.value != "") {
       try {
         if (
           value.value - 1 != data[0].value &&
@@ -150,7 +151,7 @@ const checkingAnswer = (data) => {
         }
       } catch (error) {}
     }
-    if (value.id == "box5") {
+    if (value.id == "box5" && value.value != "") {
       try {
         if (
           value.value - 1 != data[1].value &&
@@ -168,7 +169,7 @@ const checkingAnswer = (data) => {
         }
       } catch (error) {}
     }
-    if (value.id == "box6") {
+    if (value.id == "box6" && value.value != "") {
       try {
         if (
           value.value - 1 != data[4].value &&
@@ -180,7 +181,7 @@ const checkingAnswer = (data) => {
         }
       } catch (error) {}
     }
-    if (value.id == "box7") {
+    if (value.id == "box7" && value.value != "") {
       try {
         if (
           value.value - 1 != data[3].value &&
@@ -194,7 +195,7 @@ const checkingAnswer = (data) => {
         }
       } catch (error) {}
     }
-    if (value.id == "box8") {
+    if (value.id == "box8" && value.value != "") {
       try {
         if (
           value.value - 1 != data[4].value &&
