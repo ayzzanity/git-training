@@ -62,19 +62,15 @@ function editBox(event) {
       if (num.value <= 8 && num.value >= 0) {
         //checking if num already in the box / array
         input = num.value;
-        let numFound = arr.some((el) => el.value === num.value);
-        if (!numFound || input == num.value) {
-          //adding to array and updating box, restoring event listener
-          (async () => {
-            await addToArr(currentId, num.value);
-          })();
-          event.target.innerHTML = num.value;
-          event.target.addEventListener("click", editBox);
-          //checking answer
-          checkingAnswer(arr);
-        } else {
-          alert("Number already exists!");
-        }
+
+        //adding to array and updating box, restoring event listener
+        (async () => {
+          await addToArr(currentId, num.value);
+        })();
+        event.target.innerHTML = num.value;
+        event.target.addEventListener("click", editBox);
+        //checking answer
+        checkingAnswer(arr);
       } else {
         alert("Please enter 1-8 only");
       }
