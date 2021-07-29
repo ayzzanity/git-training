@@ -49,9 +49,12 @@ function editBox(event) {
         let numFound = arr.some((el) => el.value === num.value);
         if (!numFound) {
           //adding to array and updating box, restoring event listener
-          addToArr(event.target.id, num.value);
+          (async () => {
+            await addToArr(event.target.id, num.value);
+          })();
           event.target.innerHTML = num.value;
           event.target.addEventListener("click", editBox);
+          //checking answer
           checkingAnswer(arr);
         } else {
           alert("Number already exists!");
@@ -65,22 +68,16 @@ function editBox(event) {
 
 //ADDING BOX NUM AND VALUE TO ARRAY
 function addToArr(boxNum, boxVal) {
-  //checking if box already exists in array
-  // const boxFound = arr.some((el) => el.id === boxNum);
-  // //add to array if box not found
-  // if (!boxFound) {
-  //   arr = [...arr, { id: boxNum, value: boxVal }];
-  // } else {
   //update value for existing box
-  arr.forEach((obj) => {
-    if (obj.id === boxNum) {
-      obj.value = boxVal;
-    }
+  return new Promise((resolve, reject) => {
+    arr.forEach((obj) => {
+      if (obj.id === boxNum) {
+        obj.value = boxVal;
+      }
+    });
+    //console.log(arr);
+    resolve(console.log(arr));
   });
-  //}
-  //sort box by number for easier checking
-  arr.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
-  console.log(arr);
 }
 
 const checkingAnswer = (data) => {
