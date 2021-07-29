@@ -420,6 +420,9 @@ const checkingAnswer = (data) => {
   console.log(score);
   if (score == 8) {
     console.log("You are a winner");
+    setTimeout(() => {
+      alert("Congratulations! You got all the correct answers! :D");
+    }, 500);
   } else {
     console.log("You are a loser");
   }
