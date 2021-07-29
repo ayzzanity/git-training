@@ -84,19 +84,35 @@ const checkingAnswer = (data) => {
   let points;
   console.log(data);
   data.map((value) => {
+    let boxValue = parseInt(value.value);
     console.log(`checking ${value.id}`);
     if (value.id == "box1" && value.value != "") {
       try {
-        if (
-          value.value - 1 != data[1].value &&
-          value.value + 1 != data[1].value &&
-          value.value - 1 != data[3].value &&
-          value.value + 1 != data[3].value
-        ) {
-          points = points++;
-          console.log("box 1 is correct");
+        console.log(boxValue - 1, data[1].value, boxValue - 1 != data[1].value);
+        console.log(boxValue + 1, data[1].value, boxValue + 1 != data[1].value);
+        console.log(boxValue - 1, data[3].value, boxValue - 1 != data[3].value);
+        console.log(boxValue + 1, data[3].value, boxValue + 1 != data[3].value);
+
+        if (value.value == "1") {
+          console.log("box1=1");
+
+          if (boxValue + 1 != data[1].value && boxValue + 1 != data[3].value) {
+            console.log("box 1 is correct");
+          } else {
+            console.log("box 1 is wrong");
+          }
         } else {
-          console.log("box 1 is wrong");
+          if (
+            boxValue - 1 != data[1].value &&
+            boxValue + 1 != data[1].value &&
+            boxValue - 1 != data[3].value &&
+            boxValue + 1 != data[3].value
+          ) {
+            points = points++;
+            console.log("box 1 is correct");
+          } else {
+            console.log("box 1 is wrong");
+          }
         }
       } catch (error) {
         console.log(error);
@@ -107,10 +123,10 @@ const checkingAnswer = (data) => {
       //box2 value is not equals to +- the value of box1 and box5
       try {
         if (
-          value.value - 1 != data[0].value &&
-          value.value + 1 != data[0].value &&
-          value.value - 1 != data[4].value &&
-          value.value + 1 != data[4].value
+          boxValue - 1 != data[0].value &&
+          boxValue + 1 != data[0].value &&
+          boxValue - 1 != data[4].value &&
+          boxValue + 1 != data[4].value
         ) {
           console.log("box 2 is correct");
         } else {
@@ -120,10 +136,7 @@ const checkingAnswer = (data) => {
     }
     if (value.id == "box3" && value.value != "") {
       try {
-        if (
-          value.value - 1 != data[3].value &&
-          value.value + 1 != data[3].value
-        ) {
+        if (boxValue - 1 != data[3].value && boxValue + 1 != data[3].value) {
           console.log("box 3 is correct");
         } else {
           console.log("box 3 is wrong");
@@ -133,14 +146,14 @@ const checkingAnswer = (data) => {
     if (value.id == "box4" && value.value != "") {
       try {
         if (
-          value.value - 1 != data[0].value &&
-          value.value + 1 != data[0].value &&
-          value.value - 1 != data[2].value &&
-          value.value + 1 != data[2].value &&
-          value.value - 1 != data[4].value &&
-          value.value + 1 != data[4].value &&
-          value.value - 1 != data[6].value &&
-          value.value + 1 != data[6].value
+          boxValue - 1 != data[0].value &&
+          boxValue + 1 != data[0].value &&
+          boxValue - 1 != data[2].value &&
+          boxValue + 1 != data[2].value &&
+          boxValue - 1 != data[4].value &&
+          boxValue + 1 != data[4].value &&
+          boxValue - 1 != data[6].value &&
+          boxValue + 1 != data[6].value
         ) {
           console.log("box 4 is correct");
         } else {
@@ -151,14 +164,14 @@ const checkingAnswer = (data) => {
     if (value.id == "box5" && value.value != "") {
       try {
         if (
-          value.value - 1 != data[1].value &&
-          value.value + 1 != data[1].value &&
-          value.value - 1 != data[3].value &&
-          value.value + 1 != data[3].value &&
-          value.value - 1 != data[5].value &&
-          value.value + 1 != data[5].value &&
-          value.value - 1 != data[7].value &&
-          value.value + 1 != data[7].value
+          boxValue - 1 != data[1].value &&
+          boxValue + 1 != data[1].value &&
+          boxValue - 1 != data[3].value &&
+          boxValue + 1 != data[3].value &&
+          boxValue - 1 != data[5].value &&
+          boxValue + 1 != data[5].value &&
+          boxValue - 1 != data[7].value &&
+          boxValue + 1 != data[7].value
         ) {
           console.log("box 5 is correct");
         } else {
@@ -168,10 +181,7 @@ const checkingAnswer = (data) => {
     }
     if (value.id == "box6" && value.value != "") {
       try {
-        if (
-          value.value - 1 != data[4].value &&
-          value.value + 1 != data[4].value
-        ) {
+        if (boxValue - 1 != data[4].value && boxValue + 1 != data[4].value) {
           console.log("box 6 is correct");
         } else {
           console.log("box 6 is wrong");
@@ -181,10 +191,10 @@ const checkingAnswer = (data) => {
     if (value.id == "box7" && value.value != "") {
       try {
         if (
-          value.value - 1 != data[3].value &&
-          value.value + 1 != data[3].value &&
-          value.value - 1 != data[7].value &&
-          value.value + 1 != data[7].value
+          boxValue - 1 != data[3].value &&
+          boxValue + 1 != data[3].value &&
+          boxValue - 1 != data[7].value &&
+          boxValue + 1 != data[7].value
         ) {
           console.log("box 7 is correct");
         } else {
@@ -195,10 +205,10 @@ const checkingAnswer = (data) => {
     if (value.id == "box8" && value.value != "") {
       try {
         if (
-          value.value - 1 != data[4].value &&
-          value.value + 1 != data[4].value &&
-          value.value - 1 != data[6].value &&
-          value.value + 1 != data[6].value
+          boxValue - 1 != data[4].value &&
+          boxValue + 1 != data[4].value &&
+          boxValue - 1 != data[6].value &&
+          boxValue + 1 != data[6].value
         ) {
           console.log("box 8 is correct");
         } else {
