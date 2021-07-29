@@ -59,7 +59,7 @@ function htmlFn() {
       btn.addEventListener("click", () => {
         console.clear();
         //checking if num is 1-8
-        if (num.value <= 8 && num.value >= 0) {
+        if (num.value <= 8 && num.value >= 1) {
           //adding to array and updating box, restoring event listener
           (async () => {
             await addToArr(currentId, num.value);
@@ -67,7 +67,7 @@ function htmlFn() {
           event.target.innerHTML = num.value;
           event.target.addEventListener("click", editBox);
           //checking answer
-          checkingAnswer(arr);
+          LogicFn().checkingAnswer(arr);
         } else {
           alert("Please enter 1-8 only");
         }
@@ -99,360 +99,363 @@ function htmlFn() {
   return { editBox };
 }
 
-const checkingAnswer = (data) => {
-  var score = 0;
-  data.map((value) => {
-    let boxValue = parseInt(value.value);
-    if (value.id == "box1" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[1].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[2].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue != data[1].value &&
-            boxValue != data[3].value &&
-            boxValue != data[2].value &&
-            boxValue != data[4].value
-          ) {
-            score = score + 1;
+function LogicFn() {
+  const checkingAnswer = (data) => {
+    var score = 0;
+    data.map((value) => {
+      let boxValue = parseInt(value.value);
+      if (value.id == "box1" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[1].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue + 1 != data[2].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue != data[1].value &&
+              boxValue != data[3].value &&
+              boxValue != data[2].value &&
+              boxValue != data[4].value
+            ) {
+              score = score + 1;
 
-            box1.style.color = "white";
+              box1.style.color = "white";
+            } else {
+              box1.style.color = "red";
+            }
           } else {
-            box1.style.color = "red";
+            if (
+              boxValue - 1 != data[1].value &&
+              boxValue + 1 != data[1].value &&
+              boxValue - 1 != data[3].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue - 1 != data[2].value &&
+              boxValue + 1 != data[2].value &&
+              boxValue - 1 != data[4].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue != data[1].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value
+            ) {
+              score = score + 1;
+              box1.style.color = "white";
+            } else {
+              box1.style.color = "red";
+            }
           }
-        } else {
-          if (
-            boxValue - 1 != data[1].value &&
-            boxValue + 1 != data[1].value &&
-            boxValue - 1 != data[3].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[2].value &&
-            boxValue + 1 != data[2].value &&
-            boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue != data[1].value &&
-            boxValue != data[2].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value
-          ) {
-            score = score + 1;
-            box1.style.color = "white";
-          } else {
-            box1.style.color = "red";
-          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
-    }
 
-    if (value.id == "box2" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[0].value &&
-            boxValue + 1 != data[2].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue != data[0].value &&
-            boxValue != data[2].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value
-          ) {
-            score = score + 1;
-            box2.style.color = "white";
+      if (value.id == "box2" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[0].value &&
+              boxValue + 1 != data[2].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue != data[0].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value
+            ) {
+              score = score + 1;
+              box2.style.color = "white";
+            } else {
+              box2.style.color = "red";
+            }
           } else {
-            box2.style.color = "red";
+            if (
+              boxValue - 1 != data[0].value &&
+              boxValue + 1 != data[0].value &&
+              boxValue - 1 != data[4].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue - 1 != data[3].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue - 1 != data[5].value &&
+              boxValue + 1 != data[5].value &&
+              boxValue != data[0].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value
+            ) {
+              score = score + 1;
+              box2.style.color = "white";
+            } else {
+              box2.style.color = "red";
+            }
           }
-        } else {
-          if (
-            boxValue - 1 != data[0].value &&
-            boxValue + 1 != data[0].value &&
-            boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue - 1 != data[3].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[5].value &&
-            boxValue + 1 != data[5].value &&
-            boxValue != data[0].value &&
-            boxValue != data[2].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value
-          ) {
-            score = score + 1;
-            box2.style.color = "white";
+        } catch (error) {}
+      }
+      if (value.id == "box3" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[0].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue != data[0].value &&
+              boxValue != data[3].value &&
+              boxValue != data[6].value
+            ) {
+              score = score + 1;
+              box3.style.color = "white";
+            } else {
+              box3.style.color = "red";
+            }
           } else {
-            box2.style.color = "red";
+            if (
+              boxValue - 1 != data[3].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue - 1 != data[0].value &&
+              boxValue + 1 != data[0].value &&
+              boxValue - 1 != data[6].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue != data[0].value &&
+              boxValue != data[3].value &&
+              boxValue != data[6].value
+            ) {
+              score = score + 1;
+              box3.style.color = "white";
+            } else {
+              box3.style.color = "red";
+            }
           }
-        }
-      } catch (error) {}
+        } catch (error) {}
+      }
+      if (value.id == "box4" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[0].value &&
+              boxValue + 1 != data[1].value &&
+              boxValue + 1 != data[2].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
+              boxValue != data[2].value &&
+              boxValue != data[4].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box4.style.color = "white";
+            } else {
+              box4.style.color = "red";
+            }
+          } else {
+            if (
+              boxValue - 1 != data[0].value &&
+              boxValue + 1 != data[0].value &&
+              boxValue - 1 != data[2].value &&
+              boxValue + 1 != data[2].value &&
+              boxValue - 1 != data[4].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue - 1 != data[6].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue - 1 != data[1].value &&
+              boxValue + 1 != data[1].value &&
+              boxValue - 1 != data[7].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
+              boxValue != data[2].value &&
+              boxValue != data[4].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box4.style.color = "white";
+            } else {
+              box4.style.color = "red";
+            }
+          }
+        } catch (error) {}
+      }
+      if (value.id == "box5" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[0].value &&
+              boxValue + 1 != data[1].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue + 1 != data[5].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
+              boxValue != data[3].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box5.style.color = "white";
+            } else {
+              box5.style.color = "red";
+            }
+          } else {
+            if (
+              boxValue - 1 != data[1].value &&
+              boxValue + 1 != data[1].value &&
+              boxValue - 1 != data[3].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue - 1 != data[5].value &&
+              boxValue + 1 != data[5].value &&
+              boxValue - 1 != data[7].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue - 1 != data[0].value &&
+              boxValue + 1 != data[0].value &&
+              boxValue - 1 != data[6].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
+              boxValue != data[3].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box5.style.color = "white";
+            } else {
+              box5.style.color = "red";
+            }
+          }
+        } catch (error) {}
+      }
+      if (value.id == "box6" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[1].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue != data[1].value &&
+              boxValue != data[4].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box6.style.color = "white";
+            } else {
+              box6.style.color = "red";
+            }
+          } else {
+            if (
+              boxValue - 1 != data[4].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue - 1 != data[1].value &&
+              boxValue + 1 != data[1].value &&
+              boxValue - 1 != data[7].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue != data[1].value &&
+              boxValue != data[4].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box6.style.color = "white";
+            } else {
+              box6.style.color = "red";
+            }
+          }
+        } catch (error) {}
+      }
+      if (value.id == "box7" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[2].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box7.style.color = "white";
+            } else {
+              box7.style.color = "red";
+            }
+          } else {
+            if (
+              boxValue - 1 != data[3].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue - 1 != data[7].value &&
+              boxValue + 1 != data[7].value &&
+              boxValue - 1 != data[4].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue - 1 != data[2].value &&
+              boxValue + 1 != data[2].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value &&
+              boxValue != data[7].value
+            ) {
+              score = score + 1;
+              box7.style.color = "white";
+            } else {
+              box7.style.color = "red";
+            }
+          }
+        } catch (error) {}
+      }
+      if (value.id == "box8" && value.value != "") {
+        try {
+          if (value.value == "1") {
+            if (
+              boxValue + 1 != data[3].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue + 1 != data[5].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value
+            ) {
+              score = score + 1;
+              box8.style.color = "white";
+            } else {
+              box8.style.color = "red";
+            }
+          } else {
+            if (
+              boxValue - 1 != data[4].value &&
+              boxValue + 1 != data[4].value &&
+              boxValue - 1 != data[6].value &&
+              boxValue + 1 != data[6].value &&
+              boxValue - 1 != data[3].value &&
+              boxValue + 1 != data[3].value &&
+              boxValue - 1 != data[5].value &&
+              boxValue + 1 != data[5].value &&
+              boxValue != data[3].value &&
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value
+            ) {
+              score = score + 1;
+              box8.style.color = "white";
+            } else {
+              box8.style.color = "red";
+            }
+          }
+        } catch (error) {}
+      }
+    });
+    console.log(`Score is ${score}`);
+    if (score == 8) {
+      console.log("You are a winner");
+      setTimeout(() => {
+        alert("Congratulations! You got all the correct answers! :D");
+      }, 500);
+    } else {
+      console.log("You are a loser");
     }
-    if (value.id == "box3" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[0].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue != data[0].value &&
-            boxValue != data[3].value &&
-            boxValue != data[6].value
-          ) {
-            score = score + 1;
-            box3.style.color = "white";
-          } else {
-            box3.style.color = "red";
-          }
-        } else {
-          if (
-            boxValue - 1 != data[3].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[0].value &&
-            boxValue + 1 != data[0].value &&
-            boxValue - 1 != data[6].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue != data[0].value &&
-            boxValue != data[3].value &&
-            boxValue != data[6].value
-          ) {
-            score = score + 1;
-            box3.style.color = "white";
-          } else {
-            box3.style.color = "red";
-          }
-        }
-      } catch (error) {}
-    }
-    if (value.id == "box4" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[0].value &&
-            boxValue + 1 != data[1].value &&
-            boxValue + 1 != data[2].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue != data[0].value &&
-            boxValue != data[1].value &&
-            boxValue != data[2].value &&
-            boxValue != data[4].value &&
-            boxValue != data[6].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box4.style.color = "white";
-          } else {
-            box4.style.color = "red";
-          }
-        } else {
-          if (
-            boxValue - 1 != data[0].value &&
-            boxValue + 1 != data[0].value &&
-            boxValue - 1 != data[2].value &&
-            boxValue + 1 != data[2].value &&
-            boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue - 1 != data[6].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue - 1 != data[1].value &&
-            boxValue + 1 != data[1].value &&
-            boxValue - 1 != data[7].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue != data[0].value &&
-            boxValue != data[1].value &&
-            boxValue != data[2].value &&
-            boxValue != data[4].value &&
-            boxValue != data[6].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box4.style.color = "white";
-          } else {
-            box4.style.color = "red";
-          }
-        }
-      } catch (error) {}
-    }
-    if (value.id == "box5" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[0].value &&
-            boxValue + 1 != data[1].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[5].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue != data[0].value &&
-            boxValue != data[1].value &&
-            boxValue != data[3].value &&
-            boxValue != data[5].value &&
-            boxValue != data[6].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box5.style.color = "white";
-          } else {
-            box5.style.color = "red";
-          }
-        } else {
-          if (
-            boxValue - 1 != data[1].value &&
-            boxValue + 1 != data[1].value &&
-            boxValue - 1 != data[3].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[5].value &&
-            boxValue + 1 != data[5].value &&
-            boxValue - 1 != data[7].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue - 1 != data[0].value &&
-            boxValue + 1 != data[0].value &&
-            boxValue - 1 != data[6].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue != data[0].value &&
-            boxValue != data[1].value &&
-            boxValue != data[3].value &&
-            boxValue != data[5].value &&
-            boxValue != data[6].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box5.style.color = "white";
-          } else {
-            box5.style.color = "red";
-          }
-        }
-      } catch (error) {}
-    }
-    if (value.id == "box6" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[1].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue != data[1].value &&
-            boxValue != data[4].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box6.style.color = "white";
-          } else {
-            box6.style.color = "red";
-          }
-        } else {
-          if (
-            boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue - 1 != data[1].value &&
-            boxValue + 1 != data[1].value &&
-            boxValue - 1 != data[7].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue != data[1].value &&
-            boxValue != data[4].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box6.style.color = "white";
-          } else {
-            box6.style.color = "red";
-          }
-        }
-      } catch (error) {}
-    }
-    if (value.id == "box7" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[2].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue != data[2].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box7.style.color = "white";
-          } else {
-            box7.style.color = "red";
-          }
-        } else {
-          if (
-            boxValue - 1 != data[3].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[7].value &&
-            boxValue + 1 != data[7].value &&
-            boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue - 1 != data[2].value &&
-            boxValue + 1 != data[2].value &&
-            boxValue != data[2].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value &&
-            boxValue != data[7].value
-          ) {
-            score = score + 1;
-            box7.style.color = "white";
-          } else {
-            box7.style.color = "red";
-          }
-        }
-      } catch (error) {}
-    }
-    if (value.id == "box8" && value.value != "") {
-      try {
-        if (value.value == "1") {
-          if (
-            boxValue + 1 != data[3].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue + 1 != data[5].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value &&
-            boxValue != data[5].value &&
-            boxValue != data[6].value
-          ) {
-            score = score + 1;
-            box8.style.color = "white";
-          } else {
-            box8.style.color = "red";
-          }
-        } else {
-          if (
-            boxValue - 1 != data[4].value &&
-            boxValue + 1 != data[4].value &&
-            boxValue - 1 != data[6].value &&
-            boxValue + 1 != data[6].value &&
-            boxValue - 1 != data[3].value &&
-            boxValue + 1 != data[3].value &&
-            boxValue - 1 != data[5].value &&
-            boxValue + 1 != data[5].value &&
-            boxValue != data[3].value &&
-            boxValue != data[4].value &&
-            boxValue != data[5].value &&
-            boxValue != data[6].value
-          ) {
-            score = score + 1;
-            box8.style.color = "white";
-          } else {
-            box8.style.color = "red";
-          }
-        }
-      } catch (error) {}
-    }
-  });
-  console.log(`Score is ${score}`);
-  if (score == 8) {
-    console.log("You are a winner");
-    setTimeout(() => {
-      alert("Congratulations! You got all the correct answers! :D");
-    }, 500);
-  } else {
-    console.log("You are a loser");
-  }
-};
+  };
+  return { checkingAnswer };
+}
