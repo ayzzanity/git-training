@@ -115,7 +115,10 @@ function LogicFn() {
               boxValue != data[1].value &&
               boxValue != data[3].value &&
               boxValue != data[2].value &&
-              boxValue != data[4].value
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
             ) {
               score = score + 1;
 
@@ -134,9 +137,12 @@ function LogicFn() {
               boxValue - 1 != data[4].value &&
               boxValue + 1 != data[4].value &&
               boxValue != data[1].value &&
-              boxValue != data[2].value &&
               boxValue != data[3].value &&
-              boxValue != data[4].value
+              boxValue != data[2].value &&
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
             ) {
               score = score + 1;
               box1.style.color = "white";
@@ -160,7 +166,10 @@ function LogicFn() {
               boxValue != data[0].value &&
               boxValue != data[2].value &&
               boxValue != data[3].value &&
-              boxValue != data[4].value
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
             ) {
               score = score + 1;
               box2.style.color = "white";
@@ -180,7 +189,10 @@ function LogicFn() {
               boxValue != data[0].value &&
               boxValue != data[2].value &&
               boxValue != data[3].value &&
-              boxValue != data[4].value
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
             ) {
               score = score + 1;
               box2.style.color = "white";
@@ -198,8 +210,12 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[6].value &&
               boxValue != data[0].value &&
+              boxValue != data[1].value &&
               boxValue != data[3].value &&
-              boxValue != data[6].value
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
             ) {
               score = score + 1;
               box3.style.color = "white";
@@ -215,8 +231,12 @@ function LogicFn() {
               boxValue - 1 != data[6].value &&
               boxValue + 1 != data[6].value &&
               boxValue != data[0].value &&
+              boxValue != data[1].value &&
               boxValue != data[3].value &&
-              boxValue != data[6].value
+              boxValue != data[4].value &&
+              boxValue != data[5].value &&
+              boxValue != data[6].value &&
+              boxValue != data[7].value
             ) {
               score = score + 1;
               box3.style.color = "white";
@@ -240,6 +260,7 @@ function LogicFn() {
               boxValue != data[1].value &&
               boxValue != data[2].value &&
               boxValue != data[4].value &&
+              boxValue != data[5].value &&
               boxValue != data[6].value &&
               boxValue != data[7].value
             ) {
@@ -266,6 +287,7 @@ function LogicFn() {
               boxValue != data[1].value &&
               boxValue != data[2].value &&
               boxValue != data[4].value &&
+              boxValue != data[5].value &&
               boxValue != data[6].value &&
               boxValue != data[7].value
             ) {
@@ -289,6 +311,7 @@ function LogicFn() {
               boxValue + 1 != data[7].value &&
               boxValue != data[0].value &&
               boxValue != data[1].value &&
+              boxValue != data[2].value &&
               boxValue != data[3].value &&
               boxValue != data[5].value &&
               boxValue != data[6].value &&
@@ -315,6 +338,7 @@ function LogicFn() {
               boxValue + 1 != data[6].value &&
               boxValue != data[0].value &&
               boxValue != data[1].value &&
+              boxValue != data[2].value &&
               boxValue != data[3].value &&
               boxValue != data[5].value &&
               boxValue != data[6].value &&
@@ -335,8 +359,12 @@ function LogicFn() {
               boxValue + 1 != data[1].value &&
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[7].value &&
+              boxValue != data[0].value &&
               boxValue != data[1].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
               boxValue != data[4].value &&
+              boxValue != data[6].value &&
               boxValue != data[7].value
             ) {
               score = score + 1;
@@ -352,8 +380,12 @@ function LogicFn() {
               boxValue + 1 != data[1].value &&
               boxValue - 1 != data[7].value &&
               boxValue + 1 != data[7].value &&
+              boxValue != data[0].value &&
               boxValue != data[1].value &&
+              boxValue != data[2].value &&
+              boxValue != data[3].value &&
               boxValue != data[4].value &&
+              boxValue != data[6].value &&
               boxValue != data[7].value
             ) {
               score = score + 1;
@@ -372,9 +404,12 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[7].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
               boxValue != data[2].value &&
               boxValue != data[3].value &&
               boxValue != data[4].value &&
+              boxValue != data[5].value &&
               boxValue != data[7].value
             ) {
               score = score + 1;
@@ -392,9 +427,12 @@ function LogicFn() {
               boxValue + 1 != data[4].value &&
               boxValue - 1 != data[2].value &&
               boxValue + 1 != data[2].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
               boxValue != data[2].value &&
               boxValue != data[3].value &&
               boxValue != data[4].value &&
+              boxValue != data[5].value &&
               boxValue != data[7].value
             ) {
               score = score + 1;
@@ -413,6 +451,9 @@ function LogicFn() {
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[5].value &&
               boxValue + 1 != data[6].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
+              boxValue != data[2].value &&
               boxValue != data[3].value &&
               boxValue != data[4].value &&
               boxValue != data[5].value &&
@@ -433,6 +474,9 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue - 1 != data[5].value &&
               boxValue + 1 != data[5].value &&
+              boxValue != data[0].value &&
+              boxValue != data[1].value &&
+              boxValue != data[2].value &&
               boxValue != data[3].value &&
               boxValue != data[4].value &&
               boxValue != data[5].value &&
