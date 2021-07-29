@@ -17,6 +17,73 @@ const box5 = document.getElementById("box5");
 const box6 = document.getElementById("box6");
 const box7 = document.getElementById("box7");
 const box8 = document.getElementById("box8");
+<<<<<<< HEAD
+=======
+
+//addEventListener
+box1.addEventListener("click", editBox);
+box2.addEventListener("click", editBox);
+box3.addEventListener("click", editBox);
+box4.addEventListener("click", editBox);
+box5.addEventListener("click", editBox);
+box6.addEventListener("click", editBox);
+box7.addEventListener("click", editBox);
+box8.addEventListener("click", editBox);
+
+//EDITABLE BOX
+function editBox(event) {
+  //temporarily removing event listener on box
+  event.target.removeEventListener("click", editBox);
+  event.preventDefault();
+  //creating text box
+  try {
+    event.target.innerHTML = `
+          <input id="num-input" maxlength="1"></input>
+          <button id="ok-button" type="submit">OK</button>`;
+    //button and txt input elements
+    let num = document.getElementById("num-input");
+    let btn = document.getElementById("ok-button");
+    //btn listener
+    btn.addEventListener("click", () => {
+      //checking if num is 1-8
+      if (num.value <= 8 && num.value >= 1) {
+        //checking if num already in the box / array
+        let numFound = arr.some((el) => el.value === num.value);
+        if (!numFound) {
+          //adding to array and updating box, restoring event listener
+          addToArr(event.target.id, num.value);
+          event.target.innerHTML = num.value;
+          event.target.addEventListener("click", editBox);
+        } else {
+          alert("Number already exists!");
+        }
+      } else {
+        alert("Please enter 1-8 only");
+      }
+    });
+  } catch (e) {}
+}
+
+//ADDING BOX NUM AND VALUE TO ARRAY
+function addToArr(boxNum, boxVal) {
+  //checking if box already exists in array
+  // const boxFound = arr.some((el) => el.id === boxNum);
+  // //add to array if box not found
+  // if (!boxFound) {
+  //   arr = [...arr, { id: boxNum, value: boxVal }];
+  // } else {
+  //update value for existing box
+  arr.forEach((obj) => {
+    if (obj.id === boxNum) {
+      obj.value = boxVal;
+    }
+  });
+  //}
+  //sort box by number for easier checking
+  arr.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
+  console.log(arr);
+}
+>>>>>>> 3dcb307493566fc656d34b929c16c68bd956f471
 
 //addEventListener
 box1.addEventListener("click", editBox);
@@ -85,6 +152,7 @@ function addToArr(boxNum, boxVal) {
 const checkingAnswer = (data) => {
   let points;
   //box1 value is not equals to +- the value of box2 and box4
+<<<<<<< HEAD
   console.log("check data", data[0].value);
   data.map((value) => {
     if (value.id == "box1") {
@@ -92,6 +160,8 @@ const checkingAnswer = (data) => {
       //if(correct){}else{displayborder red}
     }
   });
+=======
+>>>>>>> 3dcb307493566fc656d34b929c16c68bd956f471
   if (
     box1 - 1 != box2 &&
     box1 + 1 != box2 &&
@@ -162,5 +232,8 @@ const checkingAnswer = (data) => {
     //console.log("box 8 is correct");
   }
 };
+<<<<<<< HEAD
 
 //checkingAnswer(arr);
+=======
+>>>>>>> 3dcb307493566fc656d34b929c16c68bd956f471

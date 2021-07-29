@@ -27,45 +27,6 @@
         </div>
       </div>
     </div>
-    <script>
-      //document.getElementbyId
-      const box1 = document.getElementById("box1");
-      const box2 = document.getElementById("box2");
-      const box3 = document.getElementById("box3");
-      const box4 = document.getElementById("box4");
-      const box5 = document.getElementById("box5");
-      const box6 = document.getElementById("box6");
-      const box7 = document.getElementById("box7");
-      const box8 = document.getElementById("box8");
-
-      //addEventListener
-      const click1 = box1.addEventListener("click", editBox);
-      const click2 = box2.addEventListener("click", editBox);
-      const click3 = box3.addEventListener("click", editBox);
-      const click4 = box4.addEventListener("click", editBox);
-      const click5 = box5.addEventListener("click", editBox);
-      const click6 = box6.addEventListener("click", editBox);
-      const click7 = box7.addEventListener("click", editBox);
-      const click8 = box8.addEventListener("click", editBox);
-
-      function editBox(e) {
-        //getting box id
-        e.preventDefault();
-        const el = document.getElementById(e.target.id);
-        //creating text box
-        el.innerHTML = `<form>
-          <input id="num-input" maxlength="1" value="${el.textContent}"></input>
-          <button id="ok-button" type="submit">OK</button></form>`;
-        const num = document.getElementById("num-input");
-        const btn = document.getElementById("ok-button");
-        btn.addEventListener("click", () => {
-          if (num.value <= 8 && num.value >= 1) {
-            el.innerHTML = `${num.value}`;
-          } else {
-            alert("Please enter 1-8 only");
-          }
-        });
-      }
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
