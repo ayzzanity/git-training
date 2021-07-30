@@ -38,6 +38,7 @@ function HtmlFn() {
     //temporarily removing event listener on box
     event.target.removeEventListener("click", editBox);
     console.clear();
+    //check if already on last box
     let cc = checkEmptyVal();
     //if user switched to new box
     if (currentId != undefined && currentId != event.target.id) {
