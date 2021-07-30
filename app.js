@@ -21,7 +21,6 @@ const box5 = document.getElementById("box5");
 const box6 = document.getElementById("box6");
 const box7 = document.getElementById("box7");
 const box8 = document.getElementById("box8");
-const outside = document.getElementById("main-container");
 
 //addEventListener
 box1.addEventListener("click", HtmlFn().editBox);
