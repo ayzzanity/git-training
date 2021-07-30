@@ -141,16 +141,37 @@ function LogicFn() {
   const checkingAnswer = (data) => {
     let score = 0;
     let boxnumbers = [0, 1, 2, 3, 4, 5, 6, 7];
-    let cbox1 = [1];
-    let cbox2 = [];
-    let cbox3 = [];
-    let cbox4 = [];
-    let cbox5 = [];
-    let cbox6 = [];
-    let cbox7 = [];
-    let cbox8 = [];
+    let cbox1 = [1, 2, 3, 4];
+    let cbox2 = [0, 3, 4, 5];
+    let cbox3 = [0, 3, 6];
+    let cbox4 = [0, 1, 2, 4, 6, 7];
+    let cbox5 = [0, 1, 3, 5, 6, 7];
+    let cbox6 = [2, 4, 7];
+    let cbox7 = [2, 3, 4, 7];
+    let cbox8 = [3, 4, 5, 6];
     const audio = new Audio("error.mp3");
     const audio2 = new Audio("winner.mp3");
+
+    const checkNextValue = (value, boxArray, data, checkingType) => {
+      let result = true;
+      if (checkingType == 1) {
+        boxArray.forEach((index) => {
+          if (!(value + 1 != data[index].value)) {
+            result = false;
+          }
+        });
+      }
+      if (checkingType == 2) {
+        boxArray.forEach((index) => {
+          if (
+            !(value + 1 != data[index].value && value - 1 != data[index].value)
+          ) {
+            result = false;
+          }
+        });
+      }
+      return result;
+    };
 
     const checking = (value, index, data) => {
       let result = true;
@@ -170,10 +191,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[1].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue + 1 != data[2].value &&
-              boxValue + 1 != data[4].value &&
+              checkNextValue(boxValue, cbox1, arr, 1) &&
               checking(boxValue, [0], arr)
             ) {
               score = score + 1;
@@ -186,14 +204,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[1].value &&
-              boxValue + 1 != data[1].value &&
-              boxValue - 1 != data[3].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue - 1 != data[2].value &&
-              boxValue + 1 != data[2].value &&
-              boxValue - 1 != data[4].value &&
-              boxValue + 1 != data[4].value &&
+              checkNextValue(boxValue, cbox1, arr, 2) &&
               checking(boxValue, [0], arr)
             ) {
               score = score + 1;
@@ -213,10 +224,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[0].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue + 1 != data[5].value &&
+              checkNextValue(boxValue, cbox2, arr, 1) &&
               checking(boxValue, [1], arr)
             ) {
               score = score + 1;
@@ -228,14 +236,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[0].value &&
-              boxValue + 1 != data[0].value &&
-              boxValue - 1 != data[4].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue - 1 != data[3].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue - 1 != data[5].value &&
-              boxValue + 1 != data[5].value &&
+              checkNextValue(boxValue, cbox2, arr, 2) &&
               checking(boxValue, [1], arr)
             ) {
               score = score + 1;
@@ -252,9 +253,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[0].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue + 1 != data[6].value &&
+              checkNextValue(boxValue, cbox3, arr, 1) &&
               checking(boxValue, [2], arr)
             ) {
               score = score + 1;
@@ -266,12 +265,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[3].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue - 1 != data[0].value &&
-              boxValue + 1 != data[0].value &&
-              boxValue - 1 != data[6].value &&
-              boxValue + 1 != data[6].value &&
+              checkNextValue(boxValue, cbox3, arr, 2) &&
               checking(boxValue, [2], arr)
             ) {
               score = score + 1;
@@ -288,12 +282,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[0].value &&
-              boxValue + 1 != data[1].value &&
-              boxValue + 1 != data[2].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue + 1 != data[6].value &&
-              boxValue + 1 != data[7].value &&
+              checkNextValue(boxValue, cbox4, arr, 1) &&
               checking(boxValue, [3], arr)
             ) {
               score = score + 1;
@@ -305,18 +294,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[0].value &&
-              boxValue + 1 != data[0].value &&
-              boxValue - 1 != data[2].value &&
-              boxValue + 1 != data[2].value &&
-              boxValue - 1 != data[4].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue - 1 != data[6].value &&
-              boxValue + 1 != data[6].value &&
-              boxValue - 1 != data[1].value &&
-              boxValue + 1 != data[1].value &&
-              boxValue - 1 != data[7].value &&
-              boxValue + 1 != data[7].value &&
+              checkNextValue(boxValue, cbox4, arr, 2) &&
               checking(boxValue, [3], arr)
             ) {
               score = score + 1;
@@ -333,12 +311,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[0].value &&
-              boxValue + 1 != data[1].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue + 1 != data[5].value &&
-              boxValue + 1 != data[6].value &&
-              boxValue + 1 != data[7].value &&
+              checkNextValue(boxValue, cbox4, arr, 1) &&
               checking(boxValue, [4], arr)
             ) {
               score = score + 1;
@@ -350,18 +323,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[1].value &&
-              boxValue + 1 != data[1].value &&
-              boxValue - 1 != data[3].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue - 1 != data[5].value &&
-              boxValue + 1 != data[5].value &&
-              boxValue - 1 != data[7].value &&
-              boxValue + 1 != data[7].value &&
-              boxValue - 1 != data[0].value &&
-              boxValue + 1 != data[0].value &&
-              boxValue - 1 != data[6].value &&
-              boxValue + 1 != data[6].value &&
+              checkNextValue(boxValue, cbox4, arr, 2) &&
               checking(boxValue, [4], arr)
             ) {
               score = score + 1;
@@ -378,9 +340,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[1].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue + 1 != data[7].value &&
+              checkNextValue(boxValue, cbox5, arr, 1) &&
               checking(boxValue, [5], arr)
             ) {
               score = score + 1;
@@ -392,12 +352,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[4].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue - 1 != data[1].value &&
-              boxValue + 1 != data[1].value &&
-              boxValue - 1 != data[7].value &&
-              boxValue + 1 != data[7].value &&
+              checkNextValue(boxValue, cbox5, arr, 2) &&
               checking(boxValue, [5], arr)
             ) {
               score = score + 1;
@@ -414,10 +369,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[2].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue + 1 != data[7].value &&
+              checkNextValue(boxValue, cbox6, arr, 1) &&
               checking(boxValue, [6], arr)
             ) {
               score = score + 1;
@@ -429,14 +381,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[3].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue - 1 != data[7].value &&
-              boxValue + 1 != data[7].value &&
-              boxValue - 1 != data[4].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue - 1 != data[2].value &&
-              boxValue + 1 != data[2].value &&
+              checkNextValue(boxValue, cbox6, arr, 2) &&
               checking(boxValue, [6], arr)
             ) {
               score = score + 1;
@@ -453,10 +398,7 @@ function LogicFn() {
         try {
           if (value.value == "1") {
             if (
-              boxValue + 1 != data[3].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue + 1 != data[5].value &&
-              boxValue + 1 != data[6].value &&
+              checkNextValue(boxValue, cbox7, arr, 1) &&
               checking(boxValue, [7], arr)
             ) {
               score = score + 1;
@@ -468,14 +410,7 @@ function LogicFn() {
             }
           } else {
             if (
-              boxValue - 1 != data[4].value &&
-              boxValue + 1 != data[4].value &&
-              boxValue - 1 != data[6].value &&
-              boxValue + 1 != data[6].value &&
-              boxValue - 1 != data[3].value &&
-              boxValue + 1 != data[3].value &&
-              boxValue - 1 != data[5].value &&
-              boxValue + 1 != data[5].value &&
+              checkNextValue(boxValue, cbox7, arr, 2) &&
               checking(boxValue, [7], arr)
             ) {
               score = score + 1;
