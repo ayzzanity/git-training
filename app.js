@@ -9,6 +9,8 @@ let arr = [
   { id: "box8", value: "" },
 ];
 let currentId;
+let currentInput;
+let textInput;
 
 //document.getElementbyId
 const box1 = document.getElementById("box1");
@@ -35,13 +37,25 @@ function HtmlFn() {
   function editBox(event) {
     //temporarily removing event listener on box
     event.target.removeEventListener("click", editBox);
-    event.preventDefault();
-    //check what box num
+
+    //comparing current clicked box to previous box
     if (currentId != undefined && currentId != event.target.id) {
       try {
+        console.clear();
         let currentBox = document.getElementById(currentId);
-        currentBox.innerHTML = getBoxValue(currentId);
+        //checking if input is blank
+        if (textInput.value != "") {
+          //saving text input to array
+          currentBox.innerHTML = saveBox(textInput.value);
+          //checking answer
+          LogicFn().checkingAnswer(arr);
+        } else {
+          //get input data from array
+          currentBox.innerHTML = getBoxValue(currentId);
+        }
+        //restore event listener of box
         currentBox.addEventListener("click", editBox);
+        //setting current box id
         currentId = event.target.id;
       } catch (e) {}
     }
@@ -51,29 +65,26 @@ function HtmlFn() {
     try {
       event.target.innerHTML = `
           <input id="num-input" maxlength="1"></input>
-          <button id="ok-button" type="submit">OK</button>`;
-      //button and txt input elements
-      let num = document.getElementById("num-input");
-      let btn = document.getElementById("ok-button");
-      //btn listener
-      btn.addEventListener("click", () => {
-        console.clear();
-        //checking if num is 1-8
-        if (num.value <= 8 && num.value >= 1) {
-          //adding to array and updating box, restoring event listener
-          (async () => {
-            await addToArr(currentId, num.value);
-          })();
-          event.target.innerHTML = num.value;
-          event.target.addEventListener("click", editBox);
-          //checking answer
-          LogicFn().checkingAnswer(arr);
-        } else {
-          alert("Please enter 1-8 only");
-        }
-      });
+          `;
+      //txt input element
+      textInput = document.getElementById("num-input");
+      textInput.focus();
+      textInput.select();
     } catch (e) {}
   }
+  //save text input to box
+  function saveBox(boxVal) {
+    if (boxVal <= 8 && boxVal >= 1) {
+      //adding to array and updating box, restoring event listener
+      (async () => {
+        await addToArr(currentId, boxVal);
+      })();
+    } else {
+      alert("Please enter 1-8 only");
+    }
+    return boxVal;
+  }
+  //getting box value from array
   function getBoxValue(boxNum) {
     let val;
     arr.forEach((obj) => {
@@ -83,7 +94,7 @@ function HtmlFn() {
     });
     return val;
   }
-  //ADDING BOX NUM AND VALUE TO ARRAY
+  //adding box info to array
   function addToArr(boxNum, boxVal) {
     //update value for existing box
     return new Promise((resolve, reject) => {
@@ -92,7 +103,6 @@ function HtmlFn() {
           obj.value = boxVal;
         }
       });
-      //console.log(arr);
       resolve(console.log(arr));
     });
   }
