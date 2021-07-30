@@ -112,8 +112,30 @@ function HtmlFn() {
 function LogicFn() {
   const checkingAnswer = (data) => {
     let score = 0;
+    let boxnumbers = [0, 1, 2, 3, 4, 5, 6, 7];
+    let cbox1 = [1];
+    let cbox2 = [];
+    let cbox3 = [];
+    let cbox4 = [];
+    let cbox5 = [];
+    let cbox6 = [];
+    let cbox7 = [];
+    let cbox8 = [];
     const audio = new Audio("error.mp3");
     const audio2 = new Audio("winner.mp3");
+
+    const checking = (value, index, data) => {
+      let result = true;
+      const viewbox = boxnumbers.filter((val) => !index.includes(val));
+
+      viewbox.forEach((index) => {
+        if (!(value != data[index].value)) {
+          result = false;
+        }
+      });
+      return result;
+    };
+
     data.map((value) => {
       let boxValue = parseInt(value.value);
       if (value.id == "box1" && value.value != "") {
@@ -124,13 +146,7 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[2].value &&
               boxValue + 1 != data[4].value &&
-              boxValue != data[1].value &&
-              boxValue != data[3].value &&
-              boxValue != data[2].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [0], arr)
             ) {
               score = score + 1;
 
@@ -150,13 +166,7 @@ function LogicFn() {
               boxValue + 1 != data[2].value &&
               boxValue - 1 != data[4].value &&
               boxValue + 1 != data[4].value &&
-              boxValue != data[1].value &&
-              boxValue != data[3].value &&
-              boxValue != data[2].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [0], arr)
             ) {
               score = score + 1;
               box1.style.color = "white";
@@ -179,13 +189,7 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[5].value &&
-              boxValue != data[0].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [1], arr)
             ) {
               score = score + 1;
               box2.style.color = "white";
@@ -204,13 +208,7 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue - 1 != data[5].value &&
               boxValue + 1 != data[5].value &&
-              boxValue != data[0].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [1], arr)
             ) {
               score = score + 1;
               box2.style.color = "white";
@@ -229,13 +227,7 @@ function LogicFn() {
               boxValue + 1 != data[0].value &&
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[6].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [2], arr)
             ) {
               score = score + 1;
               box3.style.color = "white";
@@ -252,13 +244,7 @@ function LogicFn() {
               boxValue + 1 != data[0].value &&
               boxValue - 1 != data[6].value &&
               boxValue + 1 != data[6].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [2], arr)
             ) {
               score = score + 1;
               box3.style.color = "white";
@@ -280,13 +266,7 @@ function LogicFn() {
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[6].value &&
               boxValue + 1 != data[7].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [3], arr)
             ) {
               score = score + 1;
               box4.style.color = "white";
@@ -309,13 +289,7 @@ function LogicFn() {
               boxValue + 1 != data[1].value &&
               boxValue - 1 != data[7].value &&
               boxValue + 1 != data[7].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [3], arr)
             ) {
               score = score + 1;
               box4.style.color = "white";
@@ -337,13 +311,7 @@ function LogicFn() {
               boxValue + 1 != data[5].value &&
               boxValue + 1 != data[6].value &&
               boxValue + 1 != data[7].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [4], arr)
             ) {
               score = score + 1;
               box5.style.color = "white";
@@ -366,13 +334,7 @@ function LogicFn() {
               boxValue + 1 != data[0].value &&
               boxValue - 1 != data[6].value &&
               boxValue + 1 != data[6].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [4], arr)
             ) {
               score = score + 1;
               box5.style.color = "white";
@@ -391,13 +353,7 @@ function LogicFn() {
               boxValue + 1 != data[1].value &&
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[7].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [5], arr)
             ) {
               score = score + 1;
               box6.style.color = "white";
@@ -414,13 +370,7 @@ function LogicFn() {
               boxValue + 1 != data[1].value &&
               boxValue - 1 != data[7].value &&
               boxValue + 1 != data[7].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[6].value &&
-              boxValue != data[7].value
+              checking(boxValue, [5], arr)
             ) {
               score = score + 1;
               box6.style.color = "white";
@@ -440,13 +390,7 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[7].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[7].value
+              checking(boxValue, [6], arr)
             ) {
               score = score + 1;
               box7.style.color = "white";
@@ -465,13 +409,7 @@ function LogicFn() {
               boxValue + 1 != data[4].value &&
               boxValue - 1 != data[2].value &&
               boxValue + 1 != data[2].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[7].value
+              checking(boxValue, [6], arr)
             ) {
               score = score + 1;
               box7.style.color = "white";
@@ -491,13 +429,7 @@ function LogicFn() {
               boxValue + 1 != data[4].value &&
               boxValue + 1 != data[5].value &&
               boxValue + 1 != data[6].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value
+              checking(boxValue, [7], arr)
             ) {
               score = score + 1;
               box8.style.color = "white";
@@ -516,13 +448,7 @@ function LogicFn() {
               boxValue + 1 != data[3].value &&
               boxValue - 1 != data[5].value &&
               boxValue + 1 != data[5].value &&
-              boxValue != data[0].value &&
-              boxValue != data[1].value &&
-              boxValue != data[2].value &&
-              boxValue != data[3].value &&
-              boxValue != data[4].value &&
-              boxValue != data[5].value &&
-              boxValue != data[6].value
+              checking(boxValue, [7], arr)
             ) {
               score = score + 1;
               box8.style.color = "white";
