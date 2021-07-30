@@ -21,6 +21,7 @@ const box5 = document.getElementById("box5");
 const box6 = document.getElementById("box6");
 const box7 = document.getElementById("box7");
 const box8 = document.getElementById("box8");
+const outside = document.getElementById("main-container");
 
 //addEventListener
 box1.addEventListener("click", HtmlFn().editBox);
@@ -37,40 +38,67 @@ function HtmlFn() {
   function editBox(event) {
     //temporarily removing event listener on box
     event.target.removeEventListener("click", editBox);
-
-    //comparing current clicked box to previous box
+    console.clear();
+    let cc = checkEmptyVal();
+    //if user switched to new box
     if (currentId != undefined && currentId != event.target.id) {
       try {
-        console.clear();
-        let currentBox = document.getElementById(currentId);
+        //get element of previous
+        let prevBox = document.getElementById(currentId);
         //checking if input is blank
         if (textInput.value != "") {
           //saving text input to array
-          currentBox.innerHTML = saveBox(textInput.value);
-          //checking answer
+          prevBox.innerHTML = saveBox(textInput.value);
+          //checking answer of prev box
           LogicFn().checkingAnswer(arr);
         } else {
           //get input data from array
-          currentBox.innerHTML = getBoxValue(currentId);
+          prevBox.innerHTML = getBoxValue(currentId);
         }
-        //restore event listener of box
-        currentBox.addEventListener("click", editBox);
-        //setting current box id
-        currentId = event.target.id;
-      } catch (e) {}
+        //restore event listener of prev box
+        prevBox.addEventListener("click", editBox);
+      } catch (e) {
+        console.log(e);
+      }
     }
     //setting new box as current id
     currentId = event.target.id;
     //creating text box
+    //if last box, add ok button
+    if (cc <= 2) {
+      event.target.innerHTML = `<input id="num-input" maxlength="1"></input>
+      <button id="ok-button" type="submit">OK</button>`;
+      try {
+        // check final answer if ok is pressed
+        btn = document.getElementById("ok-button");
+        btn.addEventListener("click", () => {
+          //saving num to array
+          event.target.innerHTML = saveBox(textInput.value);
+          //checking answer
+          LogicFn().checkingAnswer(arr);
+        });
+      } catch (e) {}
+    } else {
+      //else just input box
+      event.target.innerHTML = `<input id="num-input" maxlength="1"></input>`;
+    }
     try {
-      event.target.innerHTML = `
-          <input id="num-input" maxlength="1"></input>
-          `;
       //txt input element
       textInput = document.getElementById("num-input");
       textInput.focus();
       textInput.select();
     } catch (e) {}
+  }
+
+  //check if only one box left to enter
+  function checkEmptyVal() {
+    let counter = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].value == "") {
+        counter++;
+      }
+    }
+    return counter;
   }
   //save text input to box
   function saveBox(boxVal) {
